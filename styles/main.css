@@ -1,22 +1,30 @@
+:root {
+  --brand-color: #f00;
+}
+
 * {
   box-sizing: border-box;
 }
 
 html {
   font-family: Verdana, Tahoma, sans-serif;
+  font-size: 10px;
   color: #333;
 }
 
 body {
   background-color: #bada55;
+  font-size: 1.6rem;
+  /* opacity: 50%; */
+  text-align: center;
 }
 
 p:focus-within {
-  color: red;
+  color: var(--brand-color);
 }
 
 .custom-input {
-  border: 5px solid red;
+  border: 5px solid var(--brand-color);
   padding: 50px;
   margin-right: 50px;
 }
@@ -81,6 +89,11 @@ button:disabled {
   color: inherit;
 }
 
+.highlight,
+.main-heading {
+  font-family: cursive;
+}
+
 /** Selector Specificity
   * (everything selector)            - 0
   Element, ::pseudo-elements         - 1
@@ -118,12 +131,51 @@ h1 ~ p {
 
 /*Direct preceding sibling: + (plus)*/
 h1 + p {
-  color: red;
+  color: color-mix(in srgb, var(--brand-color) 49%, var(--brand-color) 1%);
 }
 
+
+p:last-of-type {
+  /* opacity: 0.3; */
+  color: rgba(255, 255, 0, 0.8);
+}
+
+div {
+  min-height: 50rem;
+  width: 50rem;
+  border: 10px solid red;
+  border-inline-color: blue;
+  /* border-radius: 50%; */
+  padding-block: 50px;
+  margin: auto;
+
+  text-align: justify;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    border: 20px solid purple;
+    border-top: none;
+    border-inline-color: transparent;
+
+    /* transform: translate(40px, 20px) rotate(30deg) */
+  }
+}
 /**
   0. New features: custom properties, nesting
   1. Box model
   2. Display
   3. Position
 */
+
+/* Box Model */
+strong {
+  display: grid;
+  padding-top: 100px;
+}
+
+
+iframe {
+  vertical-align: middle;
+}
